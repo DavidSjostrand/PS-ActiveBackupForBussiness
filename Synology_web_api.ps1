@@ -143,14 +143,12 @@ function Get-SynoPool
     Invoke-SynoApiMethod -Api SYNO.Core.Storage.Pool -Method list -Parameters @{limit=-1;offset=0;location='internal'} | ForEach-Object {$_.pools}
 }
 
-
 function Get-SynoUtilization
 {
     [cmdletbinding()]
     param()
     Invoke-SynoApiMethod -Api SYNO.Core.System.Utilization -Method get
 }
-
 
 function Get-SynoShare
 {
@@ -187,13 +185,6 @@ function Get-SynoChildItem
     } else {
         $result
     }
-}
-
-enum DRRole
-{
-    ANY = 0
-    MAINSITE
-    DRSITE
 }
 
 function Get-SynoSyncStatus
@@ -2035,8 +2026,14 @@ class ABVersion
     }
 }
 
-
 ###################################### Enums ##################################
+
+enum DRRole
+{
+    ANY = 0
+    MAINSITE
+    DRSITE
+}
 
 enum ABStatus
 {
